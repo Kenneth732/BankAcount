@@ -14,5 +14,13 @@ function BankAccount(initialDeposit) {
     }
   };
   
+  var account; // Declare the account object outside the event listeners
+  
+  document.getElementById("account-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const initialDeposit = parseFloat(document.getElementById("initial-deposit").value);
+    account = new BankAccount(initialDeposit); // Assign the created account to the outer variable
+    updateBalance(account.balance);
+  });
 
   
