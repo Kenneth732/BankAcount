@@ -7,3 +7,12 @@ function BankAccount(initialDeposit) {
       this.balance += amount;
     }
   };
+  
+  BankAccount.prototype.withdraw = function(amount) {
+    if (amount > 0 && amount <= this.balance) {
+      this.balance -= amount;
+    }
+  };
+  
+
+  
