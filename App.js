@@ -30,5 +30,14 @@ function BankAccount(initialDeposit) {
     updateBalance(account.balance);
   });
   
-
+  document.getElementById("withdraw-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const withdrawAmount = parseFloat(document.getElementById("withdraw-amount").value);
+    account.withdraw(withdrawAmount); // Use the outer account object to perform withdrawal
+    updateBalance(account.balance);
+  });
+  
+  function updateBalance(balance) {
+    document.getElementById("balance").textContent = balance.toFixed(2);
+  }
   
