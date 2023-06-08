@@ -22,5 +22,13 @@ function BankAccount(initialDeposit) {
     account = new BankAccount(initialDeposit); // Assign the created account to the outer variable
     updateBalance(account.balance);
   });
+  
+  document.getElementById("deposit-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const depositAmount = parseFloat(document.getElementById("deposit-amount").value);
+    account.deposit(depositAmount); // Use the outer account object to perform deposit
+    updateBalance(account.balance);
+  });
+  
 
   
